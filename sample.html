@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interest Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .form-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: vertical;
+    }
+
+    .checkbox-group, .radio-group {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .checkbox-group label,
+    .radio-group label {
+      font-weight: normal;
+      display: flex;
+      align-items: center;
+    }
+
+    .checkbox-group input,
+    .radio-group input {
+      margin-right: 6px;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 0.75rem;
+      background: #343463;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background: #999;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <form id="interest-form" action="https://formspree.io/f/xblyrrzp" method="POST">
+    <h2>Interest Form</h2>
+
+    <label for="full-name">Full Name*</label>
+    <input type="text" id="full-name" name="Full Name" required />
+
+    <label for="email">Email Address*</label>
+    <input type="email" id="email" name="Email" required />
+
+    <label for="phone">Phone Number (with country code)*</label>
+    <input type="tel" id="phone" name="Phone" required />
+
+    <label for="country">Country of Residence*</label>
+    <select id="country" name="Country" required>
+      <option value="">-- Select --</option>
+      <option>UK</option>
+      <option>USA</option>
+      <option>Canada</option>
+      <option>Other</option>
+    </select>
+
+    <label>Preferred Contact Method*</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="Contact Method" value="Email" required /> Email</label>
+      <label><input type="checkbox" name="Contact Method" value="Phone Call" /> Phone Call</label>
+      <label><input type="checkbox" name="Contact Method" value="WhatsApp" /> WhatsApp</label>
+      <label><input type="checkbox" name="Contact Method" value="Zoom" /> Zoom/Video Call</label>
+    </div>
+
+    <label>Have you invested in real estate before?*</label>
+    <div class="radio-group">
+      <label><input type="radio" name="Invested Before" value="Yes" required /> Yes</label>
+      <label><input type="radio" name="Invested Before" value="No" /> No</label>
+    </div>
+
+    <label>Property Type Interests*</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="Property Type" value="Buy-to-Let" required /> Buy-to-Let</label>
+      <label><input type="checkbox" name="Property Type" value="Buy-to-Sell" /> Buy-to-Sell</label>
+      <label><input type="checkbox" name="Property Type" value="Vacation Rentals" /> Vacation Rentals</label>
+      <label><input type="checkbox" name="Property Type" value="Development" /> Property Development</label>
+      <label><input type="checkbox" name="Property Type" value="Not Sure Yet" /> Not Sure Yet</label>
+    </div>
+
+    <label>Preferred Investment Location(s)*</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="Location" value="UK" required /> UK</label>
+      <label><input type="checkbox" name="Location" value="Europe" /> Europe</label>
+      <label><input type="checkbox" name="Location" value="Middle East" /> Middle East</label>
+      <label><input type="checkbox" name="Location" value="Asia" /> Asia</label>
+      <label><input type="checkbox" name="Location" value="Expert Advice" /> Open to Expert Recommendations</label>
+    </div>
+
+    <label>Estimated Investment Budget (USD)*</label>
+    <div class="radio-group">
+      <label><input type="radio" name="Budget" value="$50k-$100k" required /> $50,000 – $100,000</label>
+      <label><input type="radio" name="Budget" value="$100k-$250k" /> $100,000 – $250,000</label>
+      <label><input type="radio" name="Budget" value="$250k-$500k" /> $250,000 – $500,000</label>
+      <label><input type="radio" name="Budget" value="$500k-$1M" /> $500,000 – $1M</label>
+      <label><input type="radio" name="Budget" value="$1M+" /> $1M+</label>
+    </div>
+
+    <label for="consult-date">Preferred Date for Consultation*</label>
+    <input type="date" id="consult-date" name="Consultation Date" required />
+
+    <label for="consult-time">Preferred Time (with Time Zone)*</label>
+    <input type="text" id="consult-time" name="Consultation Time" required />
+
+    <label for="notes">Additional Notes or Questions</label>
+    <textarea id="notes" name="Notes" rows="5"></textarea>
+
+    <label>
+      <input type="checkbox" id="consent" required />
+      I agree to the processing of my personal data in line with the Privacy Policy.
+    </label>
+
+    <button type="submit" id="submit-btn" disabled>Submit Request</button>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById('interest-form');
+  const submitBtn = document.getElementById('submit-btn');
+
+  function isGroupChecked(name) {
+    const checkboxes = form.querySelectorAll(`[name="${name}"]`);
+    return Array.from(checkboxes).some(input => input.checked);
+  }
+
+  function validateForm() {
+    const allValid = form.checkValidity()
+      && isGroupChecked('Contact Method')
+      && isGroupChecked('Property Type')
+      && isGroupChecked('Location')
+      && isGroupChecked('Budget')
+      && document.getElementById('consent').checked;
+
+    submitBtn.disabled = !allValid;
+  }
+
+  form.addEventListener('input', validateForm);
+  form.addEventListener('change', validateForm);
+
+  form.addEventListener('submit', (e) => {
+    validateForm();
+    if (submitBtn.disabled) {
+      e.preventDefault();
+      alert('Please complete all required fields before submitting.');
+    }
+  });
+</script>
+
+
+</body>
+</html>
