@@ -1,6 +1,135 @@
 'use strict'
 
-const hamburger = document.getElementById('hamburgerIcon');
+document.addEventListener('DOMContentLoaded', () => {
+    const interestForm = document.getElementById('interest-form');
+    if (!interestForm) return; // 🔒 Exit if the form doesn't exist on the page
+
+    const submitBtn = document.getElementById('submitBtn');
+    const toggleBtn = document.getElementById('toggle-investment-btn');
+    const collapsibleSection = document.getElementById('collapsible-section');
+
+    if (toggleBtn && collapsibleSection) {
+      collapsibleSection.classList.remove('expanded');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      collapsibleSection.setAttribute('aria-hidden', 'true');
+
+      toggleBtn.addEventListener('click', () => {
+        const isExpanded = collapsibleSection.classList.toggle('expanded');
+        toggleBtn.classList.toggle('expanded', isExpanded);
+        toggleBtn.setAttribute('aria-expanded', isExpanded);
+        collapsibleSection.setAttribute('aria-hidden', !isExpanded);
+        validateForm();
+      });
+    }
+
+    function validateCheckboxGroups() {
+      const groups = interestForm.querySelectorAll('[data-group]');
+      for (const group of groups) {
+        const checkboxes = group.querySelectorAll('input[type="checkbox"]');
+        const checked = [...checkboxes].some(chk => chk.checked);
+        if (!checked) return false;
+      }
+      return true;
+    }
+
+    function validateRequiredFields() {
+      const requiredInputs = interestForm.querySelectorAll('input[required], select[required]');
+      for (const input of requiredInputs) {
+        if (!input.value.trim()) return false;
+      }
+      return true;
+    }
+
+    function validateForm() {
+      const checkboxesValid = validateCheckboxGroups();
+      const fieldsValid = validateRequiredFields();
+      submitBtn.disabled = !(checkboxesValid && fieldsValid);
+    }
+
+    interestForm.querySelectorAll('input, select').forEach(el => {
+      el.addEventListener('change', validateForm);
+      el.addEventListener('input', validateForm);
+    });
+
+    validateForm(); // Initial call
+  });
+
+  // === Other general scripts below ===
+  // Add your other JS here
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const mainImage = document.querySelector(".gallery-main img");
+    const thumbnails = document.querySelectorAll(".gallery-thumbnails .thumb");
+    const prevBtn = document.querySelector(".gallery-prev");
+    const nextBtn = document.querySelector(".gallery-next");
+
+    if (!mainImage || thumbnails.length === 0) return;
+
+    let currentIndex = 0;
+    let autoplayInterval;
+
+    function setActive(index) {
+      thumbnails.forEach(thumb => thumb.classList.remove("active"));
+      thumbnails[index].classList.add("active");
+      mainImage.src = thumbnails[index].src;
+      currentIndex = index;
+    }
+
+    function nextImage() {
+      const nextIndex = (currentIndex + 1) % thumbnails.length;
+      setActive(nextIndex);
+    }
+
+    function prevImage() {
+      const prevIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
+      setActive(prevIndex);
+    }
+
+    // Add click events for thumbnails
+    thumbnails.forEach((thumb, index) => {
+      thumb.addEventListener("click", () => {
+        setActive(index);
+        resetAutoplay();
+      });
+    });
+
+    
+
+    // Autoplay
+    function startAutoplay() {
+      autoplayInterval = setInterval(nextImage, 4000);
+    }
+
+    function resetAutoplay() {
+      clearInterval(autoplayInterval);
+      startAutoplay();
+    }
+
+    // Initialize
+    setActive(0);
+    startAutoplay();
+  });
+
+
+  document.querySelectorAll('.drop-down a').forEach(link => {
+  if (link.href === window.location.href) {
+    link.classList.add('active');
+  }
+});
+  // =============================================
+    // Only toggle on mobile
+// if (window.innerWidth < 992) {
+//   document.querySelector('.toggle-dropdown').addEventListener('click', function (e) {
+//     e.preventDefault();
+//     document.querySelector('.services-drop-down').classList.toggle('show');
+//     document.querySelector('.dropdown-arrow').classList.toggle('rotated');
+//   });
+// }
+
+  // =============================================
+
+  const hamburger = document.getElementById('hamburgerIcon');
 const menu = document.getElementById('mainDropdown');
 
 hamburger.addEventListener('click', function (e) {
@@ -31,25 +160,18 @@ window.addEventListener('scroll', () => {
 });
 
 
-// Get all arrow icons
 const dropdownArrows = document.querySelectorAll('.dropdown-arrow');
 
 dropdownArrows.forEach(arrow => {
   arrow.addEventListener('click', function (e) {
+    // Only allow click behavior on screens smaller than 992px (bootstrap LG breakpoint)
+    if (window.innerWidth >= 992) return;
+
     e.stopPropagation(); // prevent it from triggering other clicks
 
-    // Get the parent <li> of the arrow
     const parentLi = this.closest('.drop-arrows');
-
-    // Find the related dropdown div inside that <li>
     const dropdown = parentLi.querySelector('.dropdown-content');
 
-    // Close any other open dropdowns
-    // document.querySelectorAll('.dropdown-content').forEach(el => {
-    //   if (el !== dropdown) el.classList.remove('show');
-    // });
-
-    // Toggle this one
     dropdown.classList.toggle('show');
     this.classList.toggle('rotated');
   });
@@ -57,13 +179,17 @@ dropdownArrows.forEach(arrow => {
 
 // Close dropdowns when clicking outside
 document.addEventListener('click', function () {
-  document.querySelectorAll('.dropdown-content').forEach(drop => {
-    drop.classList.remove('show');
-  });
-  document.querySelectorAll('.dropdown-arrow').forEach(arrow => {
-    arrow.classList.remove('rotated');
-  });
+  // Only close dropdowns on mobile
+  if (window.innerWidth < 992) {
+    document.querySelectorAll('.dropdown-content').forEach(drop => {
+      drop.classList.remove('show');
+    });
+    document.querySelectorAll('.dropdown-arrow').forEach(arrow => {
+      arrow.classList.remove('rotated');
+    });
+  }
 });
+
 
 // Hero
 const slides = document.querySelectorAll('.slide');
@@ -136,11 +262,17 @@ heroSection.addEventListener('mouseleave', () => {
   isMouseActive = false;
   startAutoPlay();
 });
+// Footer
 
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+
+
+
+
+
+// ===========================================
 // Services start
-
-
- 
 let currentSlide = 0;
 
 function getSlidesPerView() {
@@ -191,50 +323,5 @@ function moveSlide(direction) {
   
   // Optional: reset arrow styles if you want (or keep as is)
 }
-
-
-
-
-
-// COntact form
-const form = document.getElementById('interest-form');
-    const submitBtn = document.getElementById('submitBtn');
-
-    function validateForm() {
-      const requiredInputs = form.querySelectorAll('input[required], select[required], textarea[required]');
-      const checkboxGroups = form.querySelectorAll('.checkbox-group[data-group]');
-
-      let isValid = true;
-
-      requiredInputs.forEach(input => {
-        if (input.type === 'checkbox') {
-          if (!input.checked) isValid = false;
-        } else if (!input.value.trim()) {
-          isValid = false;
-        }
-      });
-
-      checkboxGroups.forEach(group => {
-        const checkboxes = group.querySelectorAll('input[type="checkbox"]');
-        const oneChecked = Array.from(checkboxes).some(cb => cb.checked);
-        if (!oneChecked) isValid = false;
-      });
-
-      submitBtn.disabled = !isValid;
-    }
-
-    form.addEventListener('input', validateForm);
-    form.addEventListener('change', validateForm);
-    window.addEventListener('load', validateForm);
-// Footer
-
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  
-
-
-
- 
-
 
 

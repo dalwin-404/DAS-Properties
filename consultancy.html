@@ -38,12 +38,24 @@
 <li>
     <a href="about-us.html">About us</a>
     </li>
-    <li>
-        <a href="index.html#services">Services</a>
+    <li class="drop-arrows">
+<a href="#"class="toggle-dropdown">Services</a>
+<div class="services-drop-down dropdown-content">
+<h3></h3>
+<a href="property-sourcing-and-purchasing.html">Property Sourcing and Purchasing</a>
+<a href="rental-management.html">Rental management</a>
+<a href="sales&exit-strategy.html">Sales & exit strategy</a>
+<a href="consultancy.html">Consultancy</a>
+
+</div>
+ <i class="fas fa-caret-down dropdown-arrow"></i>
+            </li>
+        <li>
+        <a href="investment-opportunities.html">Investment opportunities</a>
     </li>
      <li>
-        <a href="development.html">Development</a>
-     </li>
+        <a href="global-opportunities.html">Global opportunities</a>
+    </li>
     <li>
         <a href="contact.html">Contact us</a>
     </li>
@@ -95,16 +107,18 @@ CONSULTANCY SERVICES
 <br>
 please complete the form, and a member of our team will contact you to assist you throughout the process.
 </p>
-<h3><a href="tel:+01-903947770"><i class="fas fa-phone-alt"></i> 01-903947770</a></h3>
+<h3><a href="tel:+01-903947770" target="_blank"><i class="fas fa-phone-alt"></i> 01-903947770</a></h3>
 
-<h3><a href="mailto:info@yourdomain.com">
-  <i class="fas fa-envelope"></i> info@yourdomain.com
+<h3><a href="https://wa.me/447588582993" target="_blank">
+  <i class="fab fa-whatsapp"> +44 7588 582993</i>
 </a></h3>
 
+<h3><a href="mailto:info@daspropertiesinvest.co.uk" target="_blank">
+  <i class="fas fa-envelope"></i> info@daspropertiesinvest.co.uk
+</a></h3>
 </div>
 
-<div class="form-container">
-  <form id="interest-form" action="https://formspree.io/f/your-id" method="POST">
+<form id="interest-form" action="https://formspree.io/f/your-id" method="POST" novalidate>
     <h2>Interest Form</h2>
 
     <fieldset>
@@ -132,7 +146,6 @@ please complete the form, and a member of our team will contact you to assist yo
           <option value="UK">United Kingdom</option>
           <option value="USA">United States</option>
           <option value="UAE">United Arab Emirates</option>
-          <!-- Add more countries as needed -->
         </select>
       </div>
 
@@ -147,61 +160,70 @@ please complete the form, and a member of our team will contact you to assist yo
       </div>
     </fieldset>
 
-    <fieldset>
-      <legend>Investment Preferences*</legend>
+    <!-- Toggle Button for Investment Preferences -->
+    <button type="button" id="toggle-investment-btn" aria-expanded="false" aria-controls="collapsible-section">
+      Investment Preferences
+      <span class="arrow"></span>
+    </button>
 
-      <div class="form-group checkbox-group" data-group>
-        <label>What type(s) of property are you interested in?</label>
-        <div class="options-group">
-          <label><input type="checkbox" name="property_type" value="Buy-to-Let"> Buy-to-Let</label>
-          <label><input type="checkbox" name="property_type" value="Buy-to-Sell"> Buy-to-Sell / Flipping</label>
-          <label><input type="checkbox" name="property_type" value="Vacation Rentals"> Vacation Rentals</label>
-          <label><input type="checkbox" name="property_type" value="Development"> Property Development</label>
-          <label><input type="checkbox" name="property_type" value="Not Sure"> Not Sure Yet</label>
+    <!-- Collapsible wrapper for Investment Preferences and below -->
+    <div id="collapsible-section" aria-hidden="true">
+      <fieldset>
+        <legend>Investment Preferences*</legend>
+
+        <div class="form-group checkbox-group" data-group>
+          <label>What type(s) of property are you interested in?</label>
+          <div class="options-group">
+            <label><input type="checkbox" name="property_type" value="Buy-to-Let"> Buy-to-Let</label>
+            <label><input type="checkbox" name="property_type" value="Buy-to-Sell"> Buy-to-Sell / Flipping</label>
+            <label><input type="checkbox" name="property_type" value="Vacation Rentals"> Vacation Rentals</label>
+            <label><input type="checkbox" name="property_type" value="Development"> Property Development</label>
+            <label><input type="checkbox" name="property_type" value="Not Sure"> Not Sure Yet</label>
+          </div>
         </div>
-      </div>
 
-      <div class="form-group checkbox-group" data-group>
-        <label>Preferred Investment Location(s)</label>
-        <div class="options-group">
-          <label><input type="checkbox" name="locations" value="UK"> United Kingdom</label>
-          <label><input type="checkbox" name="locations" value="Europe"> Europe</label>
-          <label><input type="checkbox" name="locations" value="Middle East"> Middle East</label>
-          <label><input type="checkbox" name="locations" value="Asia"> Asia</label>
-          <label><input type="checkbox" name="locations" value="Open"> Open to Expert Recommendations</label>
+        <div class="form-group checkbox-group" data-group>
+          <label>Preferred Investment Location(s)</label>
+          <div class="options-group">
+            <label><input type="checkbox" name="locations" value="UK"> United Kingdom</label>
+            <label><input type="checkbox" name="locations" value="Europe"> Europe</label>
+            <label><input type="checkbox" name="locations" value="Middle East"> Middle East</label>
+            <label><input type="checkbox" name="locations" value="Asia"> Asia</label>
+            <label><input type="checkbox" name="locations" value="Open"> Open to Expert Recommendations</label>
+          </div>
         </div>
-      </div>
 
-      <div class="form-group checkbox-group" data-group>
-        <label>Estimated Investment Budget (USD)</label>
-        <div class="options-group">
-          <label><input type="checkbox" name="budget" value="50-100k">$50,000 – $100,000</label>
-          <label><input type="checkbox" name="budget" value="100-250k">$100,000 – $250,000</label>
-          <label><input type="checkbox" name="budget" value="250-500k">$250,000 – $500,000</label>
-          <label><input type="checkbox" name="budget" value="500-1M">$500,000 – $1M</label>
-          <label><input type="checkbox" name="budget" value="1M+">$1M+</label>
+        <div class="form-group checkbox-group" data-group>
+          <label>Estimated Investment Budget (USD)</label>
+          <div class="options-group">
+            <label><input type="checkbox" name="budget" value="50-100k">$50,000 – $100,000</label>
+            <label><input type="checkbox" name="budget" value="100-250k">$100,000 – $250,000</label>
+            <label><input type="checkbox" name="budget" value="250-500k">$250,000 – $500,000</label>
+            <label><input type="checkbox" name="budget" value="500-1M">$500,000 – $1M</label>
+            <label><input type="checkbox" name="budget" value="1M+">$1M+</label>
+          </div>
         </div>
-      </div>
-    </fieldset>
+      </fieldset>
 
-    <fieldset>
-      <legend>Consultation Scheduling*</legend>
+      <fieldset>
+        <legend>Consultation Scheduling*</legend>
 
-      <div class="form-group">
-        <label for="date">Preferred Date</label>
-        <input type="date" name="consultation_date" id="date" required />
-      </div>
+        <div class="form-group">
+          <label for="date">Preferred Date</label>
+          <input type="date" name="consultation_date" id="date" required />
+        </div>
 
-      <div class="form-group">
-        <label for="time">Preferred Time (with time zone)</label>
-        <input type="text" name="consultation_time" id="time" required />
-      </div>
+        <div class="form-group">
+          <label for="time">Preferred Time (with time zone)</label>
+          <input type="text" name="consultation_time" id="time" required />
+        </div>
 
-      <div class="form-group">
-        <label for="notes">Additional Notes or Questions</label>
-        <textarea name="notes" id="notes" rows="4"></textarea>
-      </div>
-    </fieldset>
+        <div class="form-group">
+          <label for="notes">Additional Notes or Questions</label>
+          <textarea name="notes" id="notes" rows="4"></textarea>
+        </div>
+      </fieldset>
+    </div>
 
     <div class="form-group checkbox-group" data-group>
       <label>
@@ -210,21 +232,19 @@ please complete the form, and a member of our team will contact you to assist yo
       </label>
     </div>
 
-    <button  type="submit" id="submitBtn" disabled>Submit Request</button>
+    <button type="submit" id="submitBtn" disabled>Submit Request</button>
   </form>
-
-</div>
 </section>
 
 
 
   <!-- Contant end -->
    <!-- Footer start -->
-    <footer class="footer">
+     <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-logo">
-        <img src="assets/IMG_4129.JPG" alt="Company Logo">
+        <a href="index.html"><img src="assets/Logo_w.png" alt="Company Logo"></a>
       </div>
 
       <div class="footer-links">
@@ -245,7 +265,10 @@ please complete the form, and a member of our team will contact you to assist yo
       <div class="footer-contact">
         <h4>Contact</h4>
         <p>Email: <a href="mailto:info@daspropertiesinvest.co.uk">info@daspropertiesinvest.co.uk</a></p>
-        <h3><a href="tel:+01-903947770"><i class="fas fa-phone-alt"></i> 01-903947770</a></h3>
+       <p><a href="tel:+01-903947770"><i class="fas fa-phone-alt"></i> 01-903947770</a></p>
+<p><a href="https://wa.me/447588582993" target="_blank">
+    <i class="fab fa-whatsapp"></i> +44 7588 582993
+  </a></p>
         
         <p>84 Salop Street, Wolverhampton, WV3 0SR, United Kingdom</p>
       </div>
