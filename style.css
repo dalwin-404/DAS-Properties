@@ -212,6 +212,8 @@ margin-bottom: 1.5rem;
   /* Default arrow state (upright) */
 .dropdown-arrow {
     transition: transform 0.3s ease;
+   /* width: 10px; */
+   margin-right: 0;
   }
   
   /* Rotated state (upside down) */
@@ -220,17 +222,31 @@ margin-bottom: 1.5rem;
   }
   
 .services-drop-down{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-height: 0;
   overflow-y: hidden; /* Start hidden */
   opacity: 0;
   pointer-events: none;
   transition: max-height 0.6s ease, opacity 0.6s ease;
+  background-color: yellow;
+  padding-right: 2rem;
+ justify-content: center;
+
+  
+}
+.s-d ul   li a {
+font-size: 3px;
+/* margin: 0.5rem 0; */
+  text-align: center;
 }
 
 /* When shown */
 .services-drop-down.show{
   max-height: 400px; /* Set a limit so it scrolls */
   overflow-y: auto;
+  overflow-x: hidden;
   opacity: 1;
   pointer-events: auto;
   scrollbar-width: none; /* Firefox */
@@ -516,7 +532,7 @@ background-color: #eeeef2;
   transition: transform 0.5s ease-in-out;
   width: 400%; /* 2 slides, adjust to 300% if you have 3 */
   justify-content: center;
-  align-items: stretch;
+  /* align-items: stretch; */
 }
 
 
@@ -945,6 +961,7 @@ padding-bottom: 0;
     input[type="email"],
     input[type="tel"],
     input[type="date"],
+    input[list],
     select,
     textarea {
       width: 100%;
@@ -954,6 +971,7 @@ padding-bottom: 0;
       font-size: 1rem;
       box-sizing: border-box;
     }
+
     textarea {
       resize: vertical;
     }
@@ -2282,13 +2300,12 @@ nav .drop-down a::after {
   transform: translateX(-50%);
   width: 0;
   height: 3px;
-  /* background-color: #343463; */
   opacity: 0;
   transition: width 0.3s ease, opacity 0.3s ease;
 }
 
 nav .drop-down a.active:hover::after {
-  width: 80%; /* animate to a longer width on hover if you want */
+  width: 80%;
 }
 
 
@@ -2517,7 +2534,6 @@ gap: 3rem;
   position: relative;
   overflow: hidden;
   width: 400%;
-  /* max-width: 100%; */
   margin: 1rem;
 }
 /* Services end */

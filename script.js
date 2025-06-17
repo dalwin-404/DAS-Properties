@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add your other JS here
 
 
+
     document.addEventListener("DOMContentLoaded", function () {
     const mainImage = document.querySelector(".gallery-main img");
     const thumbnails = document.querySelectorAll(".gallery-thumbnails .thumb");
@@ -288,10 +289,11 @@ function moveSlide(direction) {
 
   currentSlide += direction;
 
+  // Loop back logic
   if (currentSlide < 0) {
-    currentSlide = 0;
-  } else if (currentSlide > maxSlideIndex) {
     currentSlide = maxSlideIndex;
+  } else if (currentSlide > maxSlideIndex) {
+    currentSlide = 0;
   }
 
   const slideWidth = wrapper.offsetWidth;
@@ -303,25 +305,10 @@ window.addEventListener('resize', () => {
   moveSlide(0); // realign
 });
 
-function moveSlide(direction) {
-  const container = document.getElementById('services-container');
-  const wrapper = document.querySelector('.services-wrapper');
-  const totalSlides = container.children.length;
-  const slidesPerView = getSlidesPerView();
-  const maxSlideIndex = Math.ceil(totalSlides / slidesPerView) - 1;
+// ✅ Autoplay every 4 seconds
+setInterval(() => {
+  moveSlide(1);
+}, 4000);
 
-  currentSlide += direction;
-
-  if (currentSlide < 0) {
-    currentSlide = maxSlideIndex;  // loop back to last slide
-  } else if (currentSlide > maxSlideIndex) {
-    currentSlide = 0;  // loop back to first slide
-  }
-
-  const slideWidth = wrapper.offsetWidth;
-  container.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
-  
-  // Optional: reset arrow styles if you want (or keep as is)
-}
 
 

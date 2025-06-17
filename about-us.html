@@ -145,9 +145,147 @@
 <p><span class="colon-header">Worldwide Opportunities, One Partner:</span> Access prime real estate in thriving markets across multiple countries, all through one trusted platform – DAS Properties and Investment.</p>
 <p><a href="mailto:info@daspropertiesinvest.co.uk"><button id="about-btn">Send us an email: info@daspropertiesinvest.co.uk</button></a></p>
  </div>
-
-
 </div>
+</section>
+
+  <section class="contact">
+  <div id="contact">
+<h2>Get in touch with us today.</h2>
+<p>If you have inquiries regarding property investments in the UK, require professional guidance, or wish to learn about our services, 
+<br>
+please complete the form, and a member of our team will contact you to assist you throughout the process.
+</p>
+<h3><a href="tel:+01-903947770" target="_blank"><i class="fas fa-phone-alt"></i> 01-903947770</a></h3>
+
+<h3>
+  <a href="https://wa.me/447588582993" target="_blank">
+    <i class="fab fa-whatsapp"></i> +44 7588 582993
+  </a>
+</h3>
+
+
+<h3><a href="mailto:info@daspropertiesinvest.co.uk" target="_blank">
+  <i class="fas fa-envelope"></i> info@daspropertiesinvest.co.uk
+</a></h3>
+</div>
+
+ <form id="interest-form" action="https://formspree.io/f/your-id" method="POST" novalidate>
+    <h2>Interest Form</h2>
+
+    <fieldset>
+      <legend>Personal Information*</legend>
+
+      <div class="form-group">
+        <label for="full-name">Full Name</label>
+        <input type="text" name="full_name" id="full-name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" name="email" id="email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number (with country code)</label>
+        <input type="tel" name="phone" id="phone" required />
+      </div>
+
+      <div class="form-group">
+        <label for="country">Country of Residence</label>
+        <input list="countries" name="country" id="country" required placeholder="-- Select or type --">
+<datalist id="countries">
+  <option value="United Kingdom">
+  <option value="United States">
+  <option value="Thailand">
+    <option value="Nigeria">
+</datalist>
+      </div>
+
+      <div class="form-group checkbox-group" data-group>
+        <label>Preferred Contact Method</label>
+        <div class="options-group">
+          <label><input type="checkbox" name="contact_method" value="Email"> Email</label>
+          <label><input type="checkbox" name="contact_method" value="Phone Call"> Phone Call</label>
+          <label><input type="checkbox" name="contact_method" value="WhatsApp"> WhatsApp</label>
+          <label><input type="checkbox" name="contact_method" value="Zoom"> Zoom/Video Call</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Toggle Button for Investment Preferences -->
+    <button type="button" id="toggle-investment-btn" aria-expanded="false" aria-controls="collapsible-section">
+      Investment Preferences
+      <span class="arrow"></span>
+    </button>
+
+    <!-- Collapsible wrapper for Investment Preferences and below -->
+    <div id="collapsible-section" aria-hidden="true">
+      <fieldset>
+        <legend>Investment Preferences*</legend>
+
+        <div class="form-group checkbox-group" data-group>
+          <label>What type(s) of property are you interested in?</label>
+          <div class="options-group">
+            <label><input type="checkbox" name="property_type" value="Buy-to-Let"> Buy-to-Let</label>
+            <label><input type="checkbox" name="property_type" value="Buy-to-Sell"> Buy-to-Sell / Flipping</label>
+            <label><input type="checkbox" name="property_type" value="Vacation Rentals"> Vacation Rentals</label>
+            <label><input type="checkbox" name="property_type" value="Development"> Property Development</label>
+            <label><input type="checkbox" name="property_type" value="Not Sure"> Not Sure Yet</label>
+          </div>
+        </div>
+
+        <div class="form-group checkbox-group" data-group>
+          <label>Preferred Investment Location(s)</label>
+          <div class="options-group">
+            <label><input type="checkbox" name="locations" value="UK"> United Kingdom</label>
+            <label><input type="checkbox" name="locations" value="Europe"> Europe</label>
+            <label><input type="checkbox" name="locations" value="Middle East"> Middle East</label>
+            <label><input type="checkbox" name="locations" value="Asia"> Asia</label>
+            <label><input type="checkbox" name="locations" value="Open"> Open to Expert Recommendations</label>
+          </div>
+        </div>
+
+        <div class="form-group checkbox-group" data-group>
+          <label>Estimated Investment Budget (USD)</label>
+          <div class="options-group">
+            <label><input type="checkbox" name="budget" value="50-100k">$50,000 – $100,000</label>
+            <label><input type="checkbox" name="budget" value="100-250k">$100,000 – $250,000</label>
+            <label><input type="checkbox" name="budget" value="250-500k">$250,000 – $500,000</label>
+            <label><input type="checkbox" name="budget" value="500-1M">$500,000 – $1M</label>
+            <label><input type="checkbox" name="budget" value="1M+">$1M+</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Consultation Scheduling*</legend>
+
+        <div class="form-group">
+          <label for="date">Preferred Date</label>
+          <input type="date" name="consultation_date" id="date" required />
+        </div>
+
+        <div class="form-group">
+          <label for="time">Preferred Time (with time zone)</label>
+          <input type="text" name="consultation_time" id="time" required />
+        </div>
+
+        <div class="form-group">
+          <label for="notes">Additional Notes or Questions</label>
+          <textarea name="notes" id="notes" rows="4"></textarea>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="form-group checkbox-group" data-group>
+      <label>
+        <input type="checkbox" name="consent" required />
+        I agree to the processing of my personal data in line with the Privacy Policy.
+      </label>
+    </div>
+
+    <button type="submit" id="submitBtn" disabled>Submit Request</button>
+  </form>
 </section>
 
    <!-- Footer start -->

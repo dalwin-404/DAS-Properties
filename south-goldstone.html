@@ -199,7 +199,7 @@
     </div>
     </div>
 
- <section class="contact">
+  <section class="contact">
   <div id="contact">
 <h2>Get in touch with us today.</h2>
 <p>If you have inquiries regarding property investments in the UK, require professional guidance, or wish to learn about our services, 
@@ -208,16 +208,19 @@ please complete the form, and a member of our team will contact you to assist yo
 </p>
 <h3><a href="tel:+01-903947770" target="_blank"><i class="fas fa-phone-alt"></i> 01-903947770</a></h3>
 
-<h3><a href="https://wa.me/447588582993" target="_blank">
-  <i class="fab fa-whatsapp"> +44 7588 582993</i>
-</a></h3>
+<h3>
+  <a href="https://wa.me/447588582993" target="_blank">
+    <i class="fab fa-whatsapp"></i> +44 7588 582993
+  </a>
+</h3>
+
 
 <h3><a href="mailto:info@daspropertiesinvest.co.uk" target="_blank">
   <i class="fas fa-envelope"></i> info@daspropertiesinvest.co.uk
 </a></h3>
 </div>
 
-<form id="interest-form" action="https://formspree.io/f/your-id" method="POST" novalidate>
+ <form id="interest-form" action="https://formspree.io/f/your-id" method="POST" novalidate>
     <h2>Interest Form</h2>
 
     <fieldset>
@@ -240,12 +243,13 @@ please complete the form, and a member of our team will contact you to assist yo
 
       <div class="form-group">
         <label for="country">Country of Residence</label>
-        <select name="country" id="country" required>
-          <option value="">-- Select --</option>
-          <option value="UK">United Kingdom</option>
-          <option value="USA">United States</option>
-          <option value="UAE">United Arab Emirates</option>
-        </select>
+        <input list="countries" name="country" id="country" required placeholder="-- Select or type --">
+<datalist id="countries">
+  <option value="United Kingdom">
+  <option value="United States">
+  <option value="Thailand">
+    <option value="Nigeria">
+</datalist>
       </div>
 
       <div class="form-group checkbox-group" data-group>
