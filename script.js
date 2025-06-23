@@ -312,3 +312,12 @@ setInterval(() => {
 
 
 
+
+// assets/js/main.js
+fetch('/content/about.md')
+  .then(response => response.text())
+  .then(markdown => {
+    const html = marked.parse(markdown); // Convert markdown to HTML
+    document.getElementById('about-content').innerHTML = html;
+  })
+  .catch(err => console.error("Markdown injection failed:", err));
