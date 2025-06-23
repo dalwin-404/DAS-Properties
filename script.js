@@ -321,3 +321,13 @@ fetch('/content/about.md')
     document.getElementById('about-content').innerHTML = html;
   })
   .catch(err => console.error("Markdown injection failed:", err));
+
+ if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", (user) => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
