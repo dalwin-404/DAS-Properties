@@ -331,3 +331,22 @@ fetch('/content/about.md')
       }
     });
   }
+
+
+  async function loadHeroSlides() {
+    const response = await fetch('/content/hero-slides/slide1.md');
+    const text = await response.text();
+    const data = parseMarkdown(text); // use a Markdown parser like `marked.js`
+
+    const slideContainer = document.querySelector('.hero-section');
+    slideContainer.innerHTML = `
+        <div class="slide active" style="background-image: url('${data.image}')">
+            <div class="hero-content">
+                <h1>${data.title}</h1>
+                <p>${data.subtitle}</p>
+                <a href="${data.buttonLink}" class="btn btn-primary">${data.buttonText}</a>
+            </div>
+        </div>
+    `;
+}
+

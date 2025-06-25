@@ -68,3 +68,18 @@ collections:
       - {label: "Map Location (Embed Code)", name: "mapLocation", widget: "text", required: false, hint: "Embed code for Google Maps or similar"}
       - {label: "Image Slides", name: "imageSlides", widget: "list", field: {label: "Image", name: "image", widget: "image"}, required: false}
 
+
+collections:
+  - name: "hero-slides"
+    label: "Hero Slides"
+    folder: "content/hero-slides"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Button Text", name: "buttonText", widget: "string", required: false }
+      - { label: "Button Link", name: "buttonLink", widget: "string", required: false }
+      - { label: "Order", name: "order", widget: "number" }
+      - { label: "Active", name: "active", widget: "boolean" }
