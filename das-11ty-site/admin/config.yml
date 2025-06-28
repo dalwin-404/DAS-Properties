@@ -7,11 +7,10 @@ media_folder: "src/assets/uploads"
 public_folder: "/assets/uploads"
 
 collections:
-  - name: "pages"
-    label: "Pages"
-    folder: "src/pages"
+  - name: "posts"
+    label: "Posts"
+    folder: "posts"
     create: true
-    slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
