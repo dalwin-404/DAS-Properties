@@ -1,10 +1,8 @@
 module.exports = function (eleventyConfig) {
-    // Your config logic here
-
     return {
         dir: {
-            input: "src",
-            includes: "_includes",
+            input: "src",        // where your content files are
+            includes: "_includes", // subfolder inside "src"
             output: "_site"
         }
     };
