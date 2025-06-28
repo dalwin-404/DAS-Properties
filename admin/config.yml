@@ -1,24 +1,26 @@
 backend:
   name: git-gateway
-  branch: master # Branch to update (optional, defaults to master)
+  branch: master
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
 
 collections:
+  # ✅ Global Settings - single file config
   - name: "global-settings"
     label: "Global Settings"
-    folder: "_data"
-    file: "global-settings.yml"
-    create: false
-    delete: false
-    fields:
-      - {label: "Site Name", name: "siteName", widget: "string"}
-      - {label: "Contact Phone", name: "contactPhone", widget: "string"}
-      - {label: "Contact Email", name: "contactEmail", widget: "string"}
-      - {label: "Contact Whatsapp", name: "contactWhatsapp", widget: "string"}
-      - {label: "Site Logo", name: "logo", widget: "image", required: false}
+    files:
+      - label: "Site Settings"
+        name: "site-settings"
+        file: "_data/global-settings.yml"
+        fields:
+          - {label: "Site Name", name: "siteName", widget: "string"}
+          - {label: "Contact Phone", name: "contactPhone", widget: "string"}
+          - {label: "Contact Email", name: "contactEmail", widget: "string"}
+          - {label: "Contact Whatsapp", name: "contactWhatsapp", widget: "string"}
+          - {label: "Site Logo", name: "logo", widget: "image", required: false}
 
+  # ✅ Hero Slides - folder based
   - name: "hero-slides"
     label: "Hero Slides"
     folder: "_data/hero-slides"
@@ -33,6 +35,7 @@ collections:
       - {label: "Order", name: "order", widget: "number", value_type: "int", min: 0, step: 1}
       - {label: "Active", name: "active", widget: "boolean", default: true}
 
+  # ✅ Properties - folder based
   - name: "properties"
     label: "Properties"
     folder: "_data/properties"
@@ -55,6 +58,7 @@ collections:
       - {label: "Gallery", name: "gallery", widget: "list", field: {label: "Image", name: "image", widget: "image"}, required: false}
       - {label: "Map Location (Embed Code)", name: "mapLocation", widget: "text", required: false, hint: "Embed code for Google Maps or similar"}
 
+  # ✅ Pages - folder based
   - name: "pages"
     label: "Pages"
     folder: "_data/pages"
@@ -67,19 +71,3 @@ collections:
       - {label: "Hero Image", name: "heroImage", widget: "image", required: false}
       - {label: "Map Location (Embed Code)", name: "mapLocation", widget: "text", required: false, hint: "Embed code for Google Maps or similar"}
       - {label: "Image Slides", name: "imageSlides", widget: "list", field: {label: "Image", name: "image", widget: "image"}, required: false}
-
-
-collections:
-  - name: "hero-slides"
-    label: "Hero Slides"
-    folder: "content/hero-slides"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
-      - { label: "Image", name: "image", widget: "image" }
-      - { label: "Button Text", name: "buttonText", widget: "string", required: false }
-      - { label: "Button Link", name: "buttonLink", widget: "string", required: false }
-      - { label: "Order", name: "order", widget: "number" }
-      - { label: "Active", name: "active", widget: "boolean" }
