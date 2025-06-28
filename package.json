@@ -1,24 +1,25 @@
 {
-  "dependencies": {
-    "fast-glob": "^3.3.3",
-    "sharp": "^0.34.2"
-  },
   "name": "das-properties",
   "version": "1.0.0",
+  "description": "",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "eleventy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "fast-glob": "^3.3.3",
+    "sharp": "^0.34.2"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Atibz/DAS-Properties.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Atibz/DAS-Properties/issues"
   },
-  "homepage": "https://github.com/Atibz/DAS-Properties#readme",
-  "description": ""
+  "homepage": "https://github.com/Atibz/DAS-Properties#readme"
 }
