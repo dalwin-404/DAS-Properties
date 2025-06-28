@@ -1,10 +1,10 @@
 module.exports = function (eleventyConfig) {
-    eleventyConfig.addPassthroughCopy("admin");
+    // Your config logic here
 
     return {
         dir: {
             input: "src",
-            includes: "_includes",  // ← add this line
+            includes: "_includes",
             output: "_site"
         }
     };

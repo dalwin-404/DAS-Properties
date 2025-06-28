@@ -2,12 +2,12 @@
 
 <h1>Sanity Blog Posts</h1>
 
-
+{% for post in post %}
 
   <article>
-    <h2>my todo</h2>
+    <h2>{{ post.title }}</h2>
     <div>
-      Hello Everyone, hope you are doing well.
+      {{ post.body }}
     </div>
   </article>
-
+{% endfor %}
