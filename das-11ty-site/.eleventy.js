@@ -1,5 +1,5 @@
 module.exports = function (eleventyConfig) {
-    eleventyConfig.addPassthroughCopy("src");
+    eleventyConfig.addPassthroughCopy("public");
     return {
         dir: {
             input: "src",   // or your actual input folder
