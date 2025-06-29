@@ -1,10 +1,9 @@
 module.exports = function (eleventyConfig) {
+    eleventyConfig.addPassthroughCopy("src");
     return {
         dir: {
-            input: "src",
-            includes: "_includes",
-            data: "_data",
-            output: "dist"
+            input: "src",   // or your actual input folder
+            output: "_site"
         }
     };
 };
