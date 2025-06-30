@@ -151,14 +151,23 @@ document.addEventListener('click', function (e) {
 
 
 const navbar = document.querySelector('nav');
+const navLogo = document.getElementById('navLogo');
 
 window.addEventListener('scroll', () => {
   if (window.scrollY > 50) {
     navbar.classList.add('scrolled');
+    navLogo.src = 'assets/Logo_p.png';
+    navLogo.style.width = '6rem';
+    navLogo.style.marginBottom = '1rem';
   } else {
     navbar.classList.remove('scrolled');
+    navLogo.src = 'assets/Logo_w.png';
+    navLogo.style.width = '7rem';
+    navLogo.style.marginTop = '2rem';
+    navLogo.style.marginBottom = '';
   }
 });
+
 
 
 const dropdownArrows = document.querySelectorAll('.dropdown-arrow');
