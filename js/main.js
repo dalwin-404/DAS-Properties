@@ -1,58 +1,65 @@
 'use strict'
 
 document.addEventListener('DOMContentLoaded', () => {
-    const interestForm = document.getElementById('interest-form');
-    if (!interestForm) return; // 🔒 Exit if the form doesn't exist on the page
+  const interestForm = document.getElementById('interest-form');
+  if (!interestForm) return;
 
-    const submitBtn = document.getElementById('submitBtn');
-    const toggleBtn = document.getElementById('toggle-investment-btn');
-    const collapsibleSection = document.getElementById('collapsible-section');
+  const submitBtn = document.getElementById('submitBtn');
+  const toggleBtn = document.getElementById('toggle-investment-btn');
+  const collapsibleSection = document.getElementById('collapsible-section');
 
-    if (toggleBtn && collapsibleSection) {
-      collapsibleSection.classList.remove('expanded');
-      toggleBtn.setAttribute('aria-expanded', 'false');
-      collapsibleSection.setAttribute('aria-hidden', 'true');
+  if (toggleBtn && collapsibleSection) {
+    collapsibleSection.classList.remove('expanded');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    collapsibleSection.setAttribute('aria-hidden', 'true');
 
-      toggleBtn.addEventListener('click', () => {
-        const isExpanded = collapsibleSection.classList.toggle('expanded');
-        toggleBtn.classList.toggle('expanded', isExpanded);
-        toggleBtn.setAttribute('aria-expanded', isExpanded);
-        collapsibleSection.setAttribute('aria-hidden', !isExpanded);
-        validateForm();
-      });
-    }
+    toggleBtn.addEventListener('click', () => {
+      const isExpanded = collapsibleSection.classList.toggle('expanded');
+      toggleBtn.classList.toggle('expanded', isExpanded);
+      toggleBtn.setAttribute('aria-expanded', isExpanded);
+      collapsibleSection.setAttribute('aria-hidden', !isExpanded);
 
-    function validateCheckboxGroups() {
-      const groups = interestForm.querySelectorAll('[data-group]');
-      for (const group of groups) {
-        const checkboxes = group.querySelectorAll('input[type="checkbox"]');
-        const checked = [...checkboxes].some(chk => chk.checked);
-        if (!checked) return false;
-      }
-      return true;
-    }
+      // Show More / Show Less text
+      toggleBtn.querySelector('.toggle-text').textContent = isExpanded ? 'Show Less' : 'Show More';
 
-    function validateRequiredFields() {
-      const requiredInputs = interestForm.querySelectorAll('input[required], select[required]');
-      for (const input of requiredInputs) {
-        if (!input.value.trim()) return false;
-      }
-      return true;
-    }
+      // Rotate arrow (handled via CSS with .expanded class)
 
-    function validateForm() {
-      const checkboxesValid = validateCheckboxGroups();
-      const fieldsValid = validateRequiredFields();
-      submitBtn.disabled = !(checkboxesValid && fieldsValid);
-    }
-
-    interestForm.querySelectorAll('input, select').forEach(el => {
-      el.addEventListener('change', validateForm);
-      el.addEventListener('input', validateForm);
+      validateForm(); // Re-validate when toggled
     });
+  }
 
-    validateForm(); // Initial call
+  function validateCheckboxGroups() {
+    const groups = interestForm.querySelectorAll('[data-group]');
+    for (const group of groups) {
+      const checkboxes = group.querySelectorAll('input[type="checkbox"]');
+      const checked = [...checkboxes].some(chk => chk.checked);
+      if (!checked) return false;
+    }
+    return true;
+  }
+
+  function validateRequiredFields() {
+    const requiredInputs = interestForm.querySelectorAll('input[required], select[required]');
+    for (const input of requiredInputs) {
+      if (!input.value.trim()) return false;
+    }
+    return true;
+  }
+
+  function validateForm() {
+    const checkboxesValid = validateCheckboxGroups();
+    const fieldsValid = validateRequiredFields();
+    submitBtn.disabled = !(checkboxesValid && fieldsValid);
+  }
+
+  interestForm.querySelectorAll('input, select').forEach(el => {
+    el.addEventListener('change', validateForm);
+    el.addEventListener('input', validateForm);
   });
+
+  validateForm();
+});
+
 
   // === Other general scripts below ===
   // Add your other JS here
