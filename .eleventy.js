@@ -3,8 +3,9 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("admin");
     eleventyConfig.addPassthroughCopy("static");
 
+    // Look for markdown files in src/properties/
     eleventyConfig.addCollection("properties", function (collectionApi) {
-        return collectionApi.getFilteredByGlob(path.join(__dirname, "_data/content/properties/*.md"));
+        return collectionApi.getFilteredByGlob("properties/*.md");
     });
 
     return {
