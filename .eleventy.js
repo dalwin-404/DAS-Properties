@@ -5,7 +5,9 @@ module.exports = function (eleventyConfig) {
 
     // Look for markdown files in src/properties/
     eleventyConfig.addCollection("properties", function (collectionApi) {
-        return collectionApi.getFilteredByGlob("properties/*.md");
+        const files = collectionApi.getFilteredByGlob("properties/*.md");
+        console.log("Properties found:", files.length);
+        return files;
     });
 
     return {
