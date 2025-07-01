@@ -4,7 +4,7 @@ module.exports = function (eleventyConfig) {
 
     // Use absolute path for collection
     eleventyConfig.addCollection("properties", function (collectionApi) {
-        return collectionApi.getFilteredByGlob("./_data/content/properties/*.md");
+        return collectionApi.getFilteredByGlob("properties/*.md");
     });
 
     return {
