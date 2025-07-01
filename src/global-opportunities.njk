@@ -384,26 +384,10 @@
   <h2>More Opportunities</h2>
 </div>
 <div class="card-container">
-<p>Properties found: {{ collections.properties | length }}</p>
+  <p>Properties found: {{ collections.properties | length }}</p>
   {% for property in collections.properties %}
-    <div class="card">
-      <img class="card-img" src="{{ property.data.mainImage }}" alt="{{ property.data.title }}">
-      <h2>{{ property.data.title }}</h2>
-      <div class="overview-highlight">
-        <div class="overview-highlight-1">
-          <p><i class="fas fa-tag icon"></i> <strong>Price From {{ property.data.priceFrom }}</strong></p>
-          <p><i class="fas fa-hourglass-half icon"></i> <strong>Complete: {{ property.data.completionDate }}</strong></p>
-        </div>
-        <div class="overview-highlight-2">
-          <p><i class="fas fa-money-bill-wave icon"></i> <strong>{{ property.data.deposit }} Deposit Now</strong></p>
-          {% if property.data.yield %}
-            <p><i class="fas fa-chart-line icon"></i> <strong>Up to {{ property.data.yield }} Yield</strong></p>
-          {% endif %}
-        </div>
-      </div>
-      <p class="card-p">{{ property.data.description }}</p>
-      <a href="/{{ property.fileSlug }}/" class="card-btn">Learn More</a>
-    </div>
+    <h2>{{ property.data.title }}</h2>
+    <pre>{{ property | dump }}</pre>
   {% endfor %}
 </div>
 
