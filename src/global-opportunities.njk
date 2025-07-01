@@ -384,6 +384,7 @@
   <h2>More Opportunities</h2>
 </div>
 <div class="card-container">
+<p>Properties found: {{ collections.properties | length }}</p>
   {% for property in collections.properties %}
     <div class="card">
       <img class="card-img" src="{{ property.data.mainImage }}" alt="{{ property.data.title }}">
