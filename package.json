@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy"
@@ -6,4 +7,30 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2"
   }
+=======
+  "name": "das-properties",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "build": "eleventy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@sanity/client": "^7.6.0",
+    "fast-glob": "^3.3.3",
+    "sharp": "^0.34.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Atibz/DAS-Properties.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Atibz/DAS-Properties/issues"
+  },
+  "homepage": "https://github.com/Atibz/DAS-Properties#readme"
+>>>>>>> 5e46bd920fac1ebf3a92ee4ef6ffc465fafcbb82
 }
