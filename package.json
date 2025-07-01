@@ -1,13 +1,4 @@
 {
-<<<<<<< HEAD
-  "scripts": {
-    "start": "eleventy --serve",
-    "build": "eleventy"
-  },
-  "devDependencies": {
-    "@11ty/eleventy": "^3.1.2"
-  }
-=======
   "name": "das-properties",
   "version": "1.0.0",
   "description": "",
@@ -32,5 +23,4 @@
     "url": "https://github.com/Atibz/DAS-Properties/issues"
   },
   "homepage": "https://github.com/Atibz/DAS-Properties#readme"
->>>>>>> 5e46bd920fac1ebf3a92ee4ef6ffc465fafcbb82
 }
