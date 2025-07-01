@@ -1,73 +1,184 @@
 backend:
   name: git-gateway
+  repo: 'Atibz/DAS-PROPERTIES'
   branch: master
 
-media_folder: "static/uploads"
-public_folder: "/uploads"
+media_folder: 'static/uploads'
+public_folder: '/static/uploads'
+
+publish_mode: editorial_workflow # Optional - adds draft/publish workflow
 
 collections:
   # ✅ Global Settings - single file config
-  - name: "global-settings"
-    label: "Global Settings"
+  - name: 'global-settings'
+    label: 'Global Settings'
     files:
-      - label: "Site Settings"
-        name: "site-settings"
-        file: "_data/global-settings.yml"
+      - label: 'Site Settings'
+        name: 'site-settings'
+        file: '_data/global-settings.yml'
         fields:
-          - {label: "Site Name", name: "siteName", widget: "string"}
-          - {label: "Contact Phone", name: "contactPhone", widget: "string"}
-          - {label: "Contact Email", name: "contactEmail", widget: "string"}
-          - {label: "Contact Whatsapp", name: "contactWhatsapp", widget: "string"}
-          - {label: "Site Logo", name: "logo", widget: "image", required: false}
+          - { label: 'Site Name', name: 'siteName', widget: 'string' }
+          - { label: 'Contact Phone', name: 'contactPhone', widget: 'string' }
+          - { label: 'Contact Email', name: 'contactEmail', widget: 'string' }
+          - {
+              label: 'Contact Whatsapp',
+              name: 'contactWhatsapp',
+              widget: 'string',
+            }
+          - {
+              label: 'Site Logo',
+              name: 'logo',
+              widget: 'image',
+              required: false,
+            }
 
-  # ✅ Hero Slides - folder based
-  - name: "hero-slides"
-    label: "Hero Slides"
-    folder: "_data/hero-slides"
+  # ✅ Hero Slides
+  - name: 'hero-slides'
+    label: 'Hero Slides'
+    folder: '_data/content/hero-slides'
     create: true
-    slug: "{{title}}"
+    slug: '{{title}}'
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
-      - {label: "Background Image", name: "backgroundImage", widget: "image"}
-      - {label: "Button Text", name: "buttonText", widget: "string", required: false}
-      - {label: "Button Link", name: "buttonLink", widget: "string", required: false}
-      - {label: "Order", name: "order", widget: "number", value_type: "int", min: 0, step: 1}
-      - {label: "Active", name: "active", widget: "boolean", default: true}
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Subtitle',
+          name: 'subtitle',
+          widget: 'string',
+          required: false,
+        }
+      - { label: 'Background Image', name: 'backgroundImage', widget: 'image' }
+      - {
+          label: 'Button Text',
+          name: 'buttonText',
+          widget: 'string',
+          required: false,
+        }
+      - {
+          label: 'Button Link',
+          name: 'buttonLink',
+          widget: 'string',
+          required: false,
+        }
+      - {
+          label: 'Order',
+          name: 'order',
+          widget: 'number',
+          value_type: 'int',
+          min: 0,
+          step: 1,
+        }
+      - { label: 'Active', name: 'active', widget: 'boolean', default: true }
 
-  # ✅ Properties - folder based
-  - name: "properties"
-    label: "Properties"
-    folder: "_data/properties"
+  # ✅ Properties
+  - name: 'properties'
+    label: 'Properties'
+    folder: '_data/content/properties'
     create: true
-    slug: "{{slug}}"
+    slug: '{{title}}'
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Slug", name: "slug", widget: "string", hint: "Unique identifier for the property URL (e.g., luxury-apartment-london)"}
-      - {label: "Description", name: "description", widget: "markdown"}
-      - {label: "Location", name: "location", widget: "string"}
-      - {label: "Category", name: "category", widget: "string", required: false}
-      - {label: "Price From", name: "priceFrom", widget: "string", required: false}
-      - {label: "Yield", name: "yield", widget: "string", required: false}
-      - {label: "Deposit", name: "deposit", widget: "string", required: false}
-      - {label: "Completion Date", name: "completionDate", widget: "string", required: false}
-      - {label: "Tenure", name: "tenure", widget: "string", required: false}
-      - {label: "Total Units", name: "totalUnits", widget: "string", required: false}
-      - {label: "Featured Property", name: "featured", widget: "boolean", default: false, hint: "Check to display on homepage"}
-      - {label: "Main Image", name: "mainImage", widget: "image"}
-      - {label: "Gallery", name: "gallery", widget: "list", field: {label: "Image", name: "image", widget: "image"}, required: false}
-      - {label: "Map Location (Embed Code)", name: "mapLocation", widget: "text", required: false, hint: "Embed code for Google Maps or similar"}
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Slug',
+          name: 'slug',
+          widget: 'string',
+          hint: 'Unique URL ID (e.g. luxury-apartment-london)',
+        }
+      - { label: 'Description', name: 'description', widget: 'markdown' }
+      - { label: 'Location', name: 'location', widget: 'string' }
+      - {
+          label: 'Category',
+          name: 'category',
+          widget: 'string',
+          required: false,
+        }
+      - {
+          label: 'Price From',
+          name: 'priceFrom',
+          widget: 'string',
+          required: false,
+        }
+      - { label: 'Yield', name: 'yield', widget: 'string', required: false }
+      - { label: 'Deposit', name: 'deposit', widget: 'string', required: false }
+      - {
+          label: 'Completion Date',
+          name: 'completionDate',
+          widget: 'string',
+          required: false,
+        }
+      - { label: 'Tenure', name: 'tenure', widget: 'string', required: false }
+      - {
+          label: 'Total Units',
+          name: 'totalUnits',
+          widget: 'string',
+          required: false,
+        }
+      - {
+          label: 'Featured Property',
+          name: 'featured',
+          widget: 'boolean',
+          default: false,
+          hint: 'Check to show on homepage',
+        }
+      - { label: 'Main Image', name: 'mainImage', widget: 'image' }
+      - {
+          label: 'Gallery',
+          name: 'gallery',
+          widget: 'list',
+          field: { label: 'Image', name: 'image', widget: 'image' },
+          required: false,
+        }
+      - {
+          label: 'Map Location (Embed Code)',
+          name: 'mapLocation',
+          widget: 'text',
+          required: false,
+          hint: 'Embed code for Google Maps',
+        }
 
-  # ✅ Pages - folder based
-  - name: "pages"
-    label: "Pages"
-    folder: "_data/pages"
+  # ✅ Pages
+  - name: 'pages'
+    label: 'Pages'
+    folder: '_data/content/pages'
     create: true
-    slug: "{{slug}}"
+    slug: '{{title}}'
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Slug", name: "slug", widget: "string", hint: "Unique identifier for the page URL (e.g., about-us, contact)"}
-      - {label: "Content", name: "content", widget: "markdown"}
-      - {label: "Hero Image", name: "heroImage", widget: "image", required: false}
-      - {label: "Map Location (Embed Code)", name: "mapLocation", widget: "text", required: false, hint: "Embed code for Google Maps or similar"}
-      - {label: "Image Slides", name: "imageSlides", widget: "list", field: {label: "Image", name: "image", widget: "image"}, required: false}
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Slug',
+          name: 'slug',
+          widget: 'string',
+          hint: 'Page URL (e.g., about-us)',
+        }
+      - { label: 'Content', name: 'content', widget: 'markdown' }
+      - {
+          label: 'Hero Image',
+          name: 'heroImage',
+          widget: 'image',
+          required: false,
+        }
+      - {
+          label: 'Map Location (Embed Code)',
+          name: 'mapLocation',
+          widget: 'text',
+          required: false,
+          hint: 'Embed code for Google Maps or similar',
+        }
+      - {
+          label: 'Image Slides',
+          name: 'imageSlides',
+          widget: 'list',
+          field: { label: 'Image', name: 'image', widget: 'image' },
+          required: false,
+        }
+
+  # ✅ Optional: Team
+  - name: 'team'
+    label: 'Team Members'
+    folder: '_data/content/team'
+    create: true
+    slug: '{{title}}'
+    fields:
+      - { label: 'Name', name: 'title', widget: 'string' }
+      - { label: 'Role', name: 'role', widget: 'string' }
+      - { label: 'Bio', name: 'bio', widget: 'markdown' }
+      - { label: 'Photo', name: 'photo', widget: 'image' }
