@@ -1,10 +1,10 @@
+const path = require("path");
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("admin");
     eleventyConfig.addPassthroughCopy("static");
 
-    // Use absolute path for collection
     eleventyConfig.addCollection("properties", function (collectionApi) {
-        return collectionApi.getFilteredByGlob("properties/*.md");
+        return collectionApi.getFilteredByGlob(path.join(__dirname, "_data/content/properties/*.md"));
     });
 
     return {
