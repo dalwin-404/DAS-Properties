@@ -383,6 +383,9 @@
     <div class="global-header">
   <h2>More Opportunities</h2>
 </div>
+
+
+
 <div class="card-container">
   {% for prop in collections.properties %}
     <div class="card">
@@ -403,6 +406,12 @@
     </div>
   {% endfor %}
 </div>
+<p>Properties count: {{ collections.properties | length }}</p>
+<ul>
+  {% for prop in collections.properties %}
+    <li>{{ prop.data.title }}</li>
+  {% endfor %}
+</ul>
 
 
   <!-- Interest Form -->

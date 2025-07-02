@@ -35,7 +35,7 @@ collections:
   # ✅ Hero Slides
   - name: 'hero-slides'
     label: 'Hero Slides'
-    folder: '_data/content/hero-slides'
+    folder: 'src/hero-slides'
     create: true
     slug: '{{title}}'
     fields:
@@ -72,7 +72,7 @@ collections:
   # ✅ Properties
   - name: 'properties'
     label: 'Properties'
-    folder: '_data/content/properties'
+    folder: 'src/properties'
     create: true
     slug: '{{title}}'
     fields:
@@ -138,7 +138,7 @@ collections:
   # ✅ Pages
   - name: 'pages'
     label: 'Pages'
-    folder: '_data/content/pages'
+    folder: 'src/pages'
     create: true
     slug: '{{title}}'
     fields:
@@ -174,7 +174,7 @@ collections:
   # ✅ Optional: Team
   - name: 'team'
     label: 'Team Members'
-    folder: '_data/content/team'
+    folder: 'src/team'
     create: true
     slug: '{{title}}'
     fields:

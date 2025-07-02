@@ -1,4 +1,3 @@
-const path = require("path");
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("admin");
     eleventyConfig.addPassthroughCopy("static");
