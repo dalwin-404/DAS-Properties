@@ -10,7 +10,7 @@ publish_mode: editorial_workflow # Optional - adds draft/publish workflow
 
 collections:
   # ✅ Global Settings - single file config
-  - name: 'global-settings'
+  - name: 'global-settings' 
     label: 'Global Settings'
     files:
       - label: 'Site Settings'
