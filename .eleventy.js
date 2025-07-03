@@ -3,7 +3,7 @@ const path = require("path");
 module.exports = function (eleventyConfig) {
     // ✅ Copy admin and static folders to output
     eleventyConfig.addPassthroughCopy("admin");
-    eleventyConfig.addPassthroughCopy("static");
+    eleventyConfig.addPassthroughCopy("src/static");
 
     // ✅ Properties collection
     eleventyConfig.addCollection("properties", function (collectionApi) {
