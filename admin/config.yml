@@ -9,8 +9,7 @@ public_folder: '/static/uploads'
 publish_mode: editorial_workflow # Optional - adds draft/publish workflow
 
 collections:
-  # ✅ Global Settings - single file config
-  - name: 'global-settings' 
+  - name: 'global-settings'
     label: 'Global Settings'
     files:
       - label: 'Site Settings'
@@ -20,17 +19,9 @@ collections:
           - { label: 'Site Name', name: 'siteName', widget: 'string' }
           - { label: 'Contact Phone', name: 'contactPhone', widget: 'string' }
           - { label: 'Contact Email', name: 'contactEmail', widget: 'string' }
-          - {
-              label: 'Contact Whatsapp',
-              name: 'contactWhatsapp',
-              widget: 'string',
-            }
-          - {
-              label: 'Site Logo',
-              name: 'logo',
-              widget: 'image',
-              required: false,
-            }
+          - { label: 'Contact Whatsapp', name: 'contactWhatsapp', widget: 'string' }
+          - { label: 'Site Logo', name: 'logo', widget: 'image', required: false }
+
 
   # ✅ Hero Slides
   - name: 'hero-slides'
