@@ -1,6 +1,6 @@
 module.exports = function (eleventyConfig) {
     // Passthrough folders
-    eleventyConfig.addPassthroughCopy("src/admin");
+    eleventyConfig.addPassthroughCopy("admin");
     eleventyConfig.addPassthroughCopy("src/static");
 
     // Properties collection
