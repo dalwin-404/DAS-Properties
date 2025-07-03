@@ -414,27 +414,45 @@
       <h2>{{ prop.data.title }}</h2>
 
       <div class="overview-highlight">
-        {% if prop.data.priceFrom %}
         <div class="overview-highlight-1">
+          {% if prop.data.priceFrom %}
           <p>
             {% if prop.data.priceIcon %}
             <i class="{{ prop.data.priceIcon }} icon"></i>
             {% endif %}
             <strong>Price From {{ prop.data.priceFrom }}</strong>
           </p>
-        </div>
-        {% endif %}
+          {% endif %}
 
-        {% if prop.data.yield %}
+          {% if prop.data.completionDate %}
+          <p>
+            {% if prop.data.completionIcon %}
+            <i class="{{ prop.data.completionIcon }} icon"></i>
+            {% endif %}
+            <strong>Complete: {{ prop.data.completionDate }}</strong>
+          </p>
+          {% endif %}
+        </div>
+
         <div class="overview-highlight-2">
+          {% if prop.data.deposit %}
+          <p>
+            {% if prop.data.depositIcon %}
+            <i class="{{ prop.data.depositIcon }} icon"></i>
+            {% endif %}
+            <strong>{{ prop.data.deposit }} Deposit Now</strong>
+          </p>
+          {% endif %}
+
+          {% if prop.data.yield %}
           <p>
             {% if prop.data.yieldIcon %}
             <i class="{{ prop.data.yieldIcon }} icon"></i>
             {% endif %}
-            <strong>{{ prop.data.yield }} Rental Yield</strong>
+            <strong>{{ prop.data.yield }} Yield</strong>
           </p>
+          {% endif %}
         </div>
-        {% endif %}
       </div>
 
       {% if prop.data.description %}
