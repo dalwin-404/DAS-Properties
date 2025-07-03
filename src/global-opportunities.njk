@@ -386,43 +386,26 @@
 
 
 
-{% if prop.data.priceFrom %}
-  <p>
-    {% if prop.data.priceIcon %}
-      <i class="{{ prop.data.priceIcon }}"></i>
-    {% endif %}
-    <strong>Price From:</strong> {{ prop.data.priceFrom }}
-  </p>
-{% endif %}
-
-{% if prop.data.yield %}
-  <p>
-    {% if prop.data.yieldIcon %}
-      <i class="{{ prop.data.yieldIcon }}"></i>
-    {% endif %}
-    <strong>Yield:</strong> {{ prop.data.yield }}
-  </p>
-{% endif %}
-
-{% if prop.data.completionDate %}
-  <p>
-    {% if prop.data.completionIcon %}
-      <i class="{{ prop.data.completionIcon }}"></i>
-    {% endif %}
-    <strong>Completion:</strong> {{ prop.data.completionDate }}
-  </p>
-{% endif %}
-
-{% if prop.data.deposit %}
-  <p>
-    {% if prop.data.depositIcon %}
-      <i class="{{ prop.data.depositIcon }}"></i>
-    {% endif %}
-    <strong>Deposit:</strong> {{ prop.data.deposit }}
-  </p>
-{% endif %}
-
-
+<div class="card-container">
+  {% for prop in collections.properties %}
+    <div class="card">
+      {% if prop.data.mainImage %}
+        <img class="card-img" src="{{ prop.data.mainImage }}" alt="{{ prop.data.title }}">
+      {% endif %}
+      <h2>{{ prop.data.title }}</h2>
+      {% if prop.data.priceFrom %}
+        <p><strong>Price From:</strong> {{ prop.data.priceFrom }}</p>
+      {% endif %}
+      {% if prop.data.completionDate %}
+        <p><strong>Completion:</strong> {{ prop.data.completionDate }}</p>
+      {% endif %}
+      {% if prop.data.description %}
+        <p>{{ prop.data.description }}</p>
+      {% endif %}
+      <a href="/{{ prop.fileSlug }}/" class="card-btn">Learn More</a>
+    </div>
+  {% endfor %}
+</div>
 
 
   <!-- Interest Form -->
