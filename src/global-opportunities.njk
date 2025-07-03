@@ -392,6 +392,10 @@
       {% if prop.data.mainImage %}
         <img class="card-img" src="{{ prop.data.mainImage }}" alt="{{ prop.data.title }}">
       {% endif %}
+      {# Show the icon if it exists #}
+      {% if prop.data.icon %}
+        <i class="{{ prop.data.icon }}"></i>
+      {% endif %}
       <h2>{{ prop.data.title }}</h2>
       {% if prop.data.priceFrom %}
         <p><strong>Price From:</strong> {{ prop.data.priceFrom }}</p>

@@ -83,6 +83,13 @@ collections:
           widget: 'string',
           hint: 'Unique URL ID (e.g. luxury-apartment-london)',
         }
+      - {
+          label: 'Icon',
+          name: 'icon',
+          widget: 'string',
+          required: false,
+          hint: 'Font Awesome icon class, e.g. fa-solid fa-building',
+        }
       - { label: 'Description', name: 'description', widget: 'markdown' }
       - { label: 'Location', name: 'location', widget: 'string' }
       - {
@@ -112,6 +119,7 @@ collections:
           widget: 'string',
           required: false,
         }
+
       - {
           label: 'Featured Property',
           name: 'featured',
