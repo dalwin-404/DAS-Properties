@@ -1,13 +1,13 @@
 ---
-title: UK
+title: Abroad
 slug: Nigeria
+priceFrom: $20,000
+yield: 2%
+completionDate: done
+deposit: 50%
 description: O﻿ut of this country
 location: Shelby
 category: palace
-priceFrom: $20,000
-yield: 2%
-deposit: 50%
-completionDate: done
 tenure: later
 totalUnits: "4"
 featured: true
