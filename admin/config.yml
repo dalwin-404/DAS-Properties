@@ -69,27 +69,89 @@ collections:
         }
       - { label: 'Active', name: 'active', widget: 'boolean', default: true }
 
+
   # ✅ Properties
+  # This collection is for managing property listings
   - name: 'properties'
     label: 'Properties'
     folder: 'src/properties'
     create: true
     slug: '{{title}}'
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - {
-          label: 'Slug',
-          name: 'slug',
-          widget: 'string',
-          hint: 'Unique URL ID (e.g. luxury-apartment-london)',
-        }
-      - {
-          label: 'Icon',
-          name: 'icon',
-          widget: 'string',
-          required: false,
-          hint: 'Font Awesome icon class, e.g. fa-solid fa-building',
-        }
+    - { label: 'Title', name: 'title', widget: 'string' }
+    - {
+        label: 'Slug',
+        name: 'slug',
+        widget: 'string',
+        hint: 'Unique URL ID (e.g. luxury-apartment-london)',
+      }
+
+    # 🎯 Price + Icon
+    - { label: 'Price From', name: 'priceFrom', widget: 'string', required: false }
+    - label: 'Price Icon'
+      name: 'priceIcon'
+      widget: 'select'
+      required: false
+      options:
+        - { label: 'Tags', value: 'fa-solid fa-tags' }
+        - { label: 'Money Bill', value: 'fa-solid fa-money-bill' }
+
+    # 📈 Yield + Icon
+    - { label: 'Yield', name: 'yield', widget: 'string', required: false }
+    - label: 'Yield Icon'
+      name: 'yieldIcon'
+      widget: 'select'
+      required: false
+      options:
+        - { label: 'Chart Line', value: 'fa-solid fa-chart-line' }
+
+    # ⏳ Completion Date + Icon
+    - { label: 'Completion Date', name: 'completionDate', widget: 'string', required: false }
+    - label: 'Completion Icon'
+      name: 'completionIcon'
+      widget: 'select'
+      required: false
+      options:
+        - { label: 'Hourglass', value: 'fa-solid fa-hourglass-half' }
+
+    # 💰 Deposit + Icon
+    - { label: 'Deposit', name: 'deposit', widget: 'string', required: false }
+    - label: 'Deposit Icon'
+      name: 'depositIcon'
+      widget: 'select'
+      required: false
+      options:
+        - { label: 'Money Bill Wave', value: 'fa-solid fa-money-bill-wave' }
+
+    # Continue with the rest of your fields...
+    - { label: 'Description', name: 'description', widget: 'markdown' }
+    - { label: 'Location', name: 'location', widget: 'string' }
+    - { label: 'Category', name: 'category', widget: 'string', required: false }
+    - { label: 'Tenure', name: 'tenure', widget: 'string', required: false }
+    - { label: 'Total Units', name: 'totalUnits', widget: 'string', required: false }
+    - {
+        label: 'Featured Property',
+        name: 'featured',
+        widget: 'boolean',
+        default: false,
+        hint: 'Check to show on homepage',
+      }
+    - { label: 'Main Image', name: 'mainImage', widget: 'image' }
+    - {
+        label: 'Gallery',
+        name: 'gallery',
+        widget: 'list',
+        field: { label: 'Image', name: 'image', widget: 'image' },
+        required: false,
+      }
+    - {
+        label: 'Map Location (Embed Code)',
+        name: 'mapLocation',
+        widget: 'text',
+        required: false,
+        hint: 'Embed code for Google Maps',
+      }
+
       - { label: 'Description', name: 'description', widget: 'markdown' }
       - { label: 'Location', name: 'location', widget: 'string' }
       - {
