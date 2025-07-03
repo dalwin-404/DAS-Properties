@@ -392,24 +392,30 @@
       {% if prop.data.mainImage %}
         <img class="card-img" src="{{ prop.data.mainImage }}" alt="{{ prop.data.title }}">
       {% endif %}
-      {# Show the icon if it exists #}
+
       {% if prop.data.icon %}
         <i class="{{ prop.data.icon }}"></i>
       {% endif %}
+
       <h2>{{ prop.data.title }}</h2>
+
       {% if prop.data.priceFrom %}
         <p><strong>Price From:</strong> {{ prop.data.priceFrom }}</p>
       {% endif %}
+
       {% if prop.data.completionDate %}
         <p><strong>Completion:</strong> {{ prop.data.completionDate }}</p>
       {% endif %}
+
       {% if prop.data.description %}
         <p>{{ prop.data.description }}</p>
       {% endif %}
+
       <a href="/{{ prop.fileSlug }}/" class="card-btn">Learn More</a>
     </div>
   {% endfor %}
 </div>
+
 
 
   <!-- Interest Form -->
